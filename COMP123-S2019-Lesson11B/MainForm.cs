@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,14 +61,59 @@ namespace COMP123_S2019_Lesson11B
 
         private void GetDataButton_Click(object sender, EventArgs e)
         {
-            var studentList =
-                from student in this.testDatabaseDataSet.StudentTable
-                select student;
+            Program.studentInfoForm.Show();
+            this.Hide();
+        }
 
-            foreach (var student in studentList.ToList())
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //open file 
+
+            using (StreamWriter outputStream = new StreamWriter(
+                File.Open("Student.txt", FileMode.Create)))
             {
-                Debug.WriteLine("Student Last Name: " + student.LastName);
+                //write file
+                outputStream.WriteLine(Program.student.id);
+                outputStream.WriteLine(Program.student.StudentID);
+                outputStream.WriteLine(Program.student.FirstName);
+                outputStream.WriteLine(Program.student.LastName);
+
+                //close file
+                outputStream.Close();
+
+                //dispose of the memory
+                outputStream.Dispose();
             }
+
+            MessageBox.Show("File Saved", "Saving...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void StudentTableGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            //aliases
+            var rowIndex = StudentTableGridView.CurrentCell.RowIndex;
+            var rows = StudentTableGridView.Rows;
+            var cells = rows[rowIndex].Cells;
+            var columnCount = StudentTableGridView.ColumnCount;
+
+            StudentTableGridView.Rows[rowIndex].Selected = true;
+
+            string outputString = string.Empty;
+            for (int index = 0; index < columnCount; index++)
+            {
+                outputString += cells[index].Value.ToString() + " ";
+            }
+
+            //helps debugging
+            //MessageBox.Show(outputString);
+            //if (MessageBox.Show(outputString, "Output String", MessageBoxButtons.YesNoCancel) == DialogResult.OK) { //do something};
+            //            Debug.WriteLine(outputString);
+            SelectionLabel.Text = outputString;
+
+            Program.student.id = int.Parse(cells[(int)StudentField.ID].Value.ToString());
+            Program.student.StudentID = cells[(int)StudentField.STUDENT_ID].Value.ToString();
+            Program.student.FirstName = cells[(int)StudentField.FIRST_NAME].Value.ToString();
+            Program.student.LastName = cells[(int)StudentField.LAST_NAME].Value.ToString();
         }
     }
 }
