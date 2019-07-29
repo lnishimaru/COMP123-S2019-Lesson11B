@@ -36,6 +36,8 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openBinaryFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveBinaryFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -45,11 +47,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ExittoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.StudentTableGridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.testDatabaseDataSet = new COMP123_S2019_Lesson11B.TestDatabaseDataSet();
             this.studentTableTableAdapter = new COMP123_S2019_Lesson11B.TestDatabaseDataSetTableAdapters.StudentTableTableAdapter();
@@ -57,11 +54,16 @@
             this.SelectionLabel = new System.Windows.Forms.Label();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.StudentOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentTableGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StudentTableGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testDatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StudentTableGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -82,35 +84,57 @@
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.openBinaryFileToolStripMenuItem,
+            this.saveBinaryFileToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.openToolStripMenuItem.Text = "&Open (Text File)";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.saveToolStripMenuItem.Text = "&Save (Text File)";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(258, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
+            // openBinaryFileToolStripMenuItem
+            // 
+            this.openBinaryFileToolStripMenuItem.Name = "openBinaryFileToolStripMenuItem";
+            this.openBinaryFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.openBinaryFileToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.openBinaryFileToolStripMenuItem.Text = "Open (&Binary File)";
+            this.openBinaryFileToolStripMenuItem.Click += new System.EventHandler(this.OpenBinaryFileToolStripMenuItem_Click);
+            // 
+            // saveBinaryFileToolStripMenuItem
+            // 
+            this.saveBinaryFileToolStripMenuItem.Name = "saveBinaryFileToolStripMenuItem";
+            this.saveBinaryFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.saveBinaryFileToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.saveBinaryFileToolStripMenuItem.Text = "Save (B&inary File)";
+            this.saveBinaryFileToolStripMenuItem.Click += new System.EventHandler(this.SaveBinaryFileToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -193,69 +217,6 @@
             this.ExittoolStripButton.Text = "Exit";
             this.ExittoolStripButton.Click += new System.EventHandler(this.ExittoolStripButton_Click);
             // 
-            // StudentTableGridView
-            // 
-            this.StudentTableGridView.AllowUserToAddRows = false;
-            this.StudentTableGridView.AllowUserToDeleteRows = false;
-            this.StudentTableGridView.AllowUserToResizeColumns = false;
-            this.StudentTableGridView.AllowUserToResizeRows = false;
-            this.StudentTableGridView.AutoGenerateColumns = false;
-            this.StudentTableGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.StudentTableGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.StudentTableGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.StudentTableGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.studentIDDataGridViewTextBoxColumn,
-            this.firstNameDataGridViewTextBoxColumn,
-            this.lastNameDataGridViewTextBoxColumn});
-            this.StudentTableGridView.DataSource = this.studentTableBindingSource;
-            this.StudentTableGridView.Location = new System.Drawing.Point(13, 59);
-            this.StudentTableGridView.MultiSelect = false;
-            this.StudentTableGridView.Name = "StudentTableGridView";
-            this.StudentTableGridView.ReadOnly = true;
-            this.StudentTableGridView.RowHeadersWidth = 51;
-            this.StudentTableGridView.RowTemplate.Height = 24;
-            this.StudentTableGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.StudentTableGridView.Size = new System.Drawing.Size(757, 311);
-            this.StudentTableGridView.TabIndex = 2;
-            this.StudentTableGridView.SelectionChanged += new System.EventHandler(this.StudentTableGridView_SelectionChanged);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // studentIDDataGridViewTextBoxColumn
-            // 
-            this.studentIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.studentIDDataGridViewTextBoxColumn.DataPropertyName = "StudentID";
-            this.studentIDDataGridViewTextBoxColumn.HeaderText = "StudentID";
-            this.studentIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.studentIDDataGridViewTextBoxColumn.Name = "studentIDDataGridViewTextBoxColumn";
-            this.studentIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // studentTableBindingSource
             // 
             this.studentTableBindingSource.DataMember = "StudentTable";
@@ -294,6 +255,69 @@
             // 
             this.StudentOpenFileDialog.FileName = "openFileDialog1";
             // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // studentIDDataGridViewTextBoxColumn
+            // 
+            this.studentIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.studentIDDataGridViewTextBoxColumn.DataPropertyName = "StudentID";
+            this.studentIDDataGridViewTextBoxColumn.HeaderText = "StudentID";
+            this.studentIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.studentIDDataGridViewTextBoxColumn.Name = "studentIDDataGridViewTextBoxColumn";
+            this.studentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // StudentTableGridView
+            // 
+            this.StudentTableGridView.AllowUserToAddRows = false;
+            this.StudentTableGridView.AllowUserToDeleteRows = false;
+            this.StudentTableGridView.AllowUserToResizeColumns = false;
+            this.StudentTableGridView.AllowUserToResizeRows = false;
+            this.StudentTableGridView.AutoGenerateColumns = false;
+            this.StudentTableGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.StudentTableGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.StudentTableGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StudentTableGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.studentIDDataGridViewTextBoxColumn,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn});
+            this.StudentTableGridView.DataSource = this.studentTableBindingSource;
+            this.StudentTableGridView.Location = new System.Drawing.Point(13, 59);
+            this.StudentTableGridView.MultiSelect = false;
+            this.StudentTableGridView.Name = "StudentTableGridView";
+            this.StudentTableGridView.ReadOnly = true;
+            this.StudentTableGridView.RowHeadersWidth = 51;
+            this.StudentTableGridView.RowTemplate.Height = 24;
+            this.StudentTableGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.StudentTableGridView.Size = new System.Drawing.Size(757, 311);
+            this.StudentTableGridView.TabIndex = 2;
+            this.StudentTableGridView.SelectionChanged += new System.EventHandler(this.StudentTableGridView_SelectionChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 38F);
@@ -318,9 +342,9 @@
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StudentTableGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testDatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StudentTableGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,18 +367,20 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolStripButton ExittoolStripButton;
-        private System.Windows.Forms.DataGridView StudentTableGridView;
         private TestDatabaseDataSet testDatabaseDataSet;
         private System.Windows.Forms.BindingSource studentTableBindingSource;
         private TestDatabaseDataSetTableAdapters.StudentTableTableAdapter studentTableTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studentIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button NextButton;
         private System.Windows.Forms.Label SelectionLabel;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog StudentOpenFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem openBinaryFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveBinaryFileToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView StudentTableGridView;
     }
 }
 
