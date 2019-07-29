@@ -64,25 +64,39 @@ namespace COMP123_S2019_Lesson11B
             Program.studentInfoForm.Show();
             this.Hide();
         }
-
+        /// <summary>
+        /// Save file event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //open file 
+            //configuring the dialog
+            saveFileDialog1.FileName = "Student.txt";
+            saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
+            saveFileDialog1.Filter = "Text Files (*.txt)|*.txt| All Files (*.*)|*.*";
 
-            using (StreamWriter outputStream = new StreamWriter(
-                File.Open("Student.txt", FileMode.Create)))
+            //open file dialog - Modal Form
+            var result = saveFileDialog1.ShowDialog();
+            if (result != DialogResult.Cancel)
             {
-                //write file
-                outputStream.WriteLine(Program.student.id);
-                outputStream.WriteLine(Program.student.StudentID);
-                outputStream.WriteLine(Program.student.FirstName);
-                outputStream.WriteLine(Program.student.LastName);
+                //open file 
 
-                //close file
-                outputStream.Close();
+                using (StreamWriter outputStream = new StreamWriter(
+                    File.Open("Student.txt", FileMode.Create)))
+                {
+                    //write file
+                    outputStream.WriteLine(Program.student.id);
+                    outputStream.WriteLine(Program.student.StudentID);
+                    outputStream.WriteLine(Program.student.FirstName);
+                    outputStream.WriteLine(Program.student.LastName);
 
-                //dispose of the memory
-                outputStream.Dispose();
+                    //close file
+                    outputStream.Close();
+
+                    //dispose of the memory
+                    outputStream.Dispose();
+                }           
             }
 
             MessageBox.Show("File Saved", "Saving...", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -114,6 +128,43 @@ namespace COMP123_S2019_Lesson11B
             Program.student.StudentID = cells[(int)StudentField.STUDENT_ID].Value.ToString();
             Program.student.FirstName = cells[(int)StudentField.FIRST_NAME].Value.ToString();
             Program.student.LastName = cells[(int)StudentField.LAST_NAME].Value.ToString();
+        }
+
+        private void OpenToolStripButton_Click(object sender, EventArgs e)
+        {
+            //configure open file dialog
+            StudentOpenFileDialog.FileName = "Student.txt";
+            StudentOpenFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            StudentOpenFileDialog.Filter = "Text Files (*.txt)|*.txt| All Files (*.*)|*.*";
+
+            //open the file dialog
+            var result = StudentOpenFileDialog.ShowDialog();
+            if (result != DialogResult.Cancel)
+            {
+                using (StreamReader inputStream = new StreamReader(
+                File.Open("Student.txt", FileMode.Open)))
+                { 
+                    try
+                    {
+                        //read file
+                        Program.student.id = int.Parse(inputStream.ReadLine());
+                        Program.student.StudentID = inputStream.ReadLine();
+                        Program.student.FirstName = inputStream.ReadLine();
+                        Program.student.LastName = inputStream.ReadLine();
+
+                        inputStream.Close();
+                        inputStream.Dispose();
+
+                        GetDataButton_Click(sender, e);
+                    }
+                    catch (IOException exception)
+                    {
+                        MessageBox.Show("Error: " + exception.Message, "File I/O Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
         }
     }
 }
